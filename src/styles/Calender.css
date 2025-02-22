@@ -1,21 +1,62 @@
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.calender
-{
-   height: 400px;
-   width: 900px;
-   background-color: rgb(245, 233, 209);
-   margin-left: 40%;
-   padding: 30px;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   gap: 70px;
+body {
+  font-family: Arial, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(0, 128, 128, 0.8);
+}
+
+.button-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+button.prev-btn,
+button.next-btn {
+  background-color: white;
+  color: teal;
+  border: 1px solid teal;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.carousel-banner {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.carousel-banner h1 {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
