@@ -8,7 +8,7 @@ const AllRoutes = () => {
      <div>
         <Calender />
         <Routes>
-            <Route path="/March" element= {<Dates />}/>
+            <Route path="/:month" element= {<Dates />}/>
         </Routes>
         
      </div>

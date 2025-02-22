@@ -1,15 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/Calender.css";
-import { Link } from 'react-router-dom';
+import { Carousel } from "react-bootstrap"
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const Calender = () => 
-{
+const Calender = () => {
+  const [months, setMonths] = useState([]);
+  const data = useParams();
+
+
+  const banner = () => {
+    axios("https://v1.realtormate.com/api/social_calendar/all_months")
+      .then((res) => {
+        setMonths(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+        setMonths([]);
+      })
+  }
+
+  useEffect(() => {
+    banner();
+  }, []);
+
+
   return (
-    <div className='calender'>
-        <button><Link to="/">Previous</Link></button>
-        <h1>Aprill,2022</h1>
-        <button><Link to="/">Next</Link></button>
+
+    <div className="">
+      {months.map((el, i) => (
+        <Carousel.Item key={el.id}>
+          <Link to={`/${el.month}`}>
+            <h1>{el.calendar_banner_text}</h1>
+          </Link>
+        </Carousel.Item>
+      ))}
     </div>
+
+
   )
 }
 
